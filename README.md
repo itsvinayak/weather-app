@@ -1,3 +1,3 @@
-# weather web app
-weather app using django and flask
+# weather app
 
+weather app using different frameworks
