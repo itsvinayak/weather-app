@@ -33,4 +33,4 @@ A virtual environment is a tool that helps to keep dependencies required by diff
 ---
 
 
-made by vinayak with 💕 and 🍺
+<strong>made by vinayak with 💕 and 🍺</strong>
