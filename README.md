@@ -2,8 +2,7 @@
 weather app using different python framework
 
 ![](https://img.shields.io/github/repo-size/itsvinayak/weather-app.svg?label=Repo%20size&style=flat-square)&nbsp;
-
-
+[![Made with python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://github.com/itsvinayak/weather-app)
 
 > Django
 
@@ -25,14 +24,28 @@ Python offers multiple options for developing GUI (Graphical User Interface). Ou
 
 ---
 
-# activate virtual environment for repositories
-
-<pre>source bin/activate </pre>
+## Virtualenv & Dependencies
+### create a virtualenv and run requirements.txt<br/>
 
 <b> what is virtual environment ? </b><br/>
 A virtual environment is a tool that helps to keep dependencies required by different projects separate by creating isolated python virtual environments for them. This is one of the most important tools that most of the Python developers use.
+<br/>
 <a href="https://www.geeksforgeeks.org/python-virtual-environment/" >read more... </a>
 
+- <b>installing virtualenv</b>
+<pre>$ pip install virtualenv</pre>
+
+- <b>creating virtualenv</b>
+<pre>$ virtualenv env</pre>
+env is name of environment
+
+- <b>activating virtual environment</b>
+<pre>$ source env/bin/activate </pre>
+
+- <b>run requirements.txt</b>
+<pre>$ pip install -r requirements.txt</pre>
+
+Note: each application contains its own requirements
 
 ---
 
