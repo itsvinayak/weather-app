@@ -11,6 +11,7 @@ def tocelcius(temp):
 
 @app.route('/',methods=['POST','GET'])
 def weather():
+    api_key = '48a90ac42caa09f90dcaeee4096b9e53'
     if request.method == 'POST':
         city = request.form['city']
     else:
@@ -19,7 +20,7 @@ def weather():
 
     # source contain json data from api
     try:
-        source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=48a90ac42caa09f90dcaeee4096b9e53').read()
+        source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid='+api_key).read()
     except:
         return abort(404)
     # converting json data to dictionary
