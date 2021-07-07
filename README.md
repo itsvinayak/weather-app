@@ -16,11 +16,11 @@ Flask is a lightweight WSGI web application framework. It is designed to make ge
 
 <a href="https://github.com/itsvinayak/weather-app/tree/master/weather-flask" >project link </a>
 
->twinkle
+>tkinter
 
 Python offers multiple options for developing GUI (Graphical User Interface). Out of all the GUI methods, tkinter is the most commonly used method. It is a standard Python interface to the Tk GUI toolkit shipped with Python. Python with tkinter outputs the fastest and easiest way to create the GUI applications.
 
-<a href="https://github.com/itsvinayak/weather-app/tree/master/weather-twinkle" >project link </a>
+<a href="https://github.com/itsvinayak/weather-app/tree/master/weather-tkinter" >project link </a>
 
 ---
 
