@@ -1,8 +1,13 @@
-from tkinter import *
+from tkinter import Canvas, Menu, Tk, PhotoImage, Entry, Label, Button, Frame
 import json
 import requests
 import os
 import threading
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
+
 HEIGHT=400
 WIDTH=800
 
@@ -10,22 +15,25 @@ WIDTH=800
 ############################# function #####################################################################
 
 def weather(city):
-    key='48a90ac42caa09f90dcaeee4096b9e53'
     #print('Please Wait')
     show['text'] = 'Please wait . . . .'
     try:
-        source=requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + city +'&appid='+key)
+        source=requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={TOKEN}')
         data=source.json()
     except:
         show['text'] = "Error ! \nPlease try again"
         return
 
-    a = "name : "+data['name']+'\n'
-    b="description : "+data['weather'][0]['description']+'\n'
-    c = "coordinate : "+str(data['coord']['lon'])+" , "+str(data['coord']['lat'])+'\n'
-    d = "temp : " + str(data['main']['temp'])+'k'+" \npressure : "+str(data['main']['pressure'])+" \nhumidity : "+str(data['main']['humidity'])
+    try:
+        a = "name : "+data['name']+'\n'
+        b="description : "+data['weather'][0]['description']+'\n'
+        c = "coordinate : "+str(data['coord']['lon'])+" , "+str(data['coord']['lat'])+'\n'
+        d = "temp : " + str(data['main']['temp'])+'k'+" \npressure : "+str(data['main']['pressure'])+" \nhumidity : "+str(data['main']['humidity'])
 
-    show['text']=a+b+c+d
+        show['text']=a+b+c+d
+    except KeyError:
+        show['text'] = f"Looks like the API quota is filled up, or no city like {city} was found." # Show the error message if the wrong city is entered/API quota is full.
+
     return
 
 def start_thread():
