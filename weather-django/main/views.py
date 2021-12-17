@@ -1,9 +1,14 @@
 from django.shortcuts import render
+import os
 # import json to load json data to python dictionary
 import json
 # urllib.request to make a request to api
 import urllib.request
+from dotenv import load_dotenv
 
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
+print(TOKEN)
 
 def index(request):
     if request.method == 'POST':
@@ -14,7 +19,7 @@ def index(request):
         # source contain json data from api
 
         source = urllib.request.urlopen(
-            'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=48a90ac42caa09f90dcaeee4096b9e53').read()
+            f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={TOKEN}').read()
 
         # converting json data to dictionary
 

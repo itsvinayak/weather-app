@@ -1,9 +1,13 @@
 from flask import Flask,render_template,request,abort
+from dotenv import load_dotenv
+import os
 # import json to load json data to python dictionary
 import json
 # urllib.request to make a request to api
 import urllib.request
 
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
 
 app = Flask(__name__)
 def tocelcius(temp):
@@ -11,7 +15,6 @@ def tocelcius(temp):
 
 @app.route('/',methods=['POST','GET'])
 def weather():
-    api_key = '48a90ac42caa09f90dcaeee4096b9e53'
     if request.method == 'POST':
         city = request.form['city']
     else:
@@ -20,7 +23,7 @@ def weather():
 
     # source contain json data from api
     try:
-        source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid='+api_key).read()
+        source = urllib.request.urlopen(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={TOKEN}').read()
     except:
         return abort(404)
     # converting json data to dictionary
